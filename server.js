@@ -15,7 +15,16 @@ app.get("/", (req, res) => {
 });
 
 app.post("/create", (req, res) => {
-    // TODO: create new post
+const newPost = {
+        creator: req.body.creator,
+        title: req.body.title,
+        category: req.body.category,
+        content: req.body.content,
+        date: new Date()     // timestamp post with current date and time
+    };
+
+    postArray.unshift(newPost); // insert new post at the beginning so it shows up at the top of the list
+    res.redirect("/"); // force reload page to see new post
 });
 
 app.patch("/edit", (req, res) => {
