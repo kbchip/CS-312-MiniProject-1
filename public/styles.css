@@ -1,0 +1,43 @@
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    background: rgb(20, 20, 20);
+}
+
+.site-title {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+.create-form, .edit-form {
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 5px white;
+}
+
+.create-form *, .edit-form * {
+    display: flex;
+    padding: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.create-form #content, .edit-form #content {
+    font-family: inherit;
+    resize: none;
+}
+
+.blog-post {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: flex;
+    border: solid 5px white;
+}
+
