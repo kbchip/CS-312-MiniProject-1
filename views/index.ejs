@@ -28,14 +28,14 @@
         <input type="submit" value="Create Post">
     </form>
 
-    <%if (locals.posts) {%>
-        <%for (const i in posts) {%>
+    <% if (locals.posts) { %>
+        <% for (const i in posts) { %>
             <div class="blog-post">
-                <h2 class="blog-title"><%=posts[i].title%></h2>
-                <h4 class="blog-creator"><%=posts[i].creator%></h4>
-                <time class="blog-date"><%=posts[i].date%></time>
-                <p class="blog-content"><%=posts[i].content%></p>
-                <button class="edit-button" onclick="window.location.href='/edit/<%=i%>'">Edit</button>
+                <h2 class="blog-title"><%= posts[i].title %></h2>
+                <h4 class="blog-creator"><%= posts[i].creator %></h4>
+                <time class="blog-date"><%= posts[i].date.toDateString() %></time>
+                <p class="blog-content"><%= posts[i].content %></p>
+                <button class="edit-button" onclick="window.location.href='/edit/<%= i% >'">Edit</button>
                 <button class="delete-button" onclick="fetch('/delete/<%= i %>', { method: 'DELETE' }).then(() => window.location.reload())">Delete</button>
             </div>
         <%}%>
