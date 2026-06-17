@@ -6,6 +6,25 @@
     <title>BlogPlace - Edit Post</title>
 </head>
 <body>
-    <!-- TODO: edit form with current content filled in -->
+    <h1>Edit Post</h1>
+
+    <form class="edit-form" action="/edit/<%= index %>" method="PATCH">
+        <label for="creator">Creator</label>
+        <input type="text" id="creator" name="creator" value="<%= post.creator %>" placeholder="Post creator" required>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="<%= post.title %>" placeholder="Post title" required>
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+            <option value="tech" <% if (post.category === "tech" ? "selected" : "") %>>Tech</option>
+            <option value="lifestyle" <% if (post.category === "lifestyle" ? "selected" : "") %>>Lifestyle</option>
+            <option value="education" <% if (post.category === "education" ? "selected" : "") %>>Education</option>
+            <option value="sports" <% if (post.category === "sports" ? "selected" : "") %>>Sports</option>
+            <option value="science" <% if (post.category === "science" ? "selected" : "") %>>Science</option>
+            <option value="cars" <% if (post.category === "cars" ? "selected" : "") %>>Cars</option>
+        </select>
+        <label for="content">Content</label>
+        <textarea id="content" name="content" placeholder="What's on your mind?" required><%= post.content %></textarea>
+        <input type="submit" value="Create Post">
+    </form>
 </body>
 </html>
