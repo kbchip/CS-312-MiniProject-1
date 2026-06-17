@@ -5,6 +5,8 @@ const port = 3000;
 
 let postArray = [];
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
     res.render("index.ejs", {
         posts: postArray
