@@ -18,7 +18,7 @@ app.post("/create", (req, res) => {
     const newPost = {
         creator: req.body.creator,
         title: req.body.title,
-        category: req.body.category,
+        category: req.body.category.slice(0,1).toUpperCase() + req.body.category.slice(1), // kind of dumb hack to capitalize categories
         content: req.body.content,
         date: new Date() // timestamp post with current date and time
     };
@@ -54,7 +54,7 @@ app.post("/edit/:index", (req, res) => {
     // update postArray data with form data, whether or not it was changed by the user
     post.creator = req.body.creator;
     post.title = req.body.title;
-    post.category = req.body.category;
+    post.category = req.body.category.slice(0,1).toUpperCase() + req.body.category.slice(1); // kind of dumb hack to capitalize categories
     post.content = req.body.content;
 
     res.redirect("/"); // force reload page to see updated post
