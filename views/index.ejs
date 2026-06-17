@@ -29,7 +29,7 @@
     </form>
 
     <%if (locals.posts) {%>
-        <%for (post in posts) {%>
+        <%for (const post of posts) {%>
             <div class="blog-post">
                 <h2 class="blog-title"><%=post.title%></h2>
                 <h4 class="blog-creator"><%=post.creator%></h4>
