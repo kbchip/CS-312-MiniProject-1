@@ -27,8 +27,43 @@ const newPost = {
     res.redirect("/"); // force reload page to see new post
 });
 
-app.patch("/edit", (req, res) => {
-    // TODO: edit existing post
+app.get("/edit/:index", (req, res) => {
+    const postIndex = Number(req.params.index); // grab index from URL
+    const post = postArray[postIndex];
+
+    // handle incorrect post index or user manually inputting a post index
+    if (!post) {
+        return res.redirect("/");
+    }
+
+    res.render("edit.ejs", {
+        index: postIndex,
+        post // supply post data to pre-populate form fields in edit.ejs
+    });
+});
+
+app.patch("/edit/:index", (req, res) => {
+    const postIndex = Number(req.params.index); // grab index from URL
+    const post = postArray[postIndex];
+
+// again handle incorrect post index or user manually inputting a post index
+    if (!post) {
+        return res.redirect("/");
+    }
+
+// update postArray data with form data, whether or not it was changed by the user
+    post.creator = req.body.creator;
+    post.title = req.body.title;
+    post.category = req.body.category;
+    post.content = req.body.content;
+
+res.redirect("/"); // force reload page to see updated post
+});
+
+app.delete("/delete/:index", (req, res) => {
+    const postIndex = Number(req.params.index); // grab index from URL
+    postArray.splice(postIndex, 1);
+    res.redirect("/");
 });
 
 app.delete("/delete", (req, res) => {
