@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>BlogPlace - Edit Post</title>
 </head>
 <body>
@@ -15,12 +16,12 @@
         <input type="text" id="title" name="title" value="<%= post.title %>" placeholder="Post title" required>
         <label for="category">Category</label>
         <select id="category" name="category" required>
-            <option value="tech" <% if (post.category === "tech" ? "selected" : "") %>>Tech</option>
-            <option value="lifestyle" <% if (post.category === "lifestyle" ? "selected" : "") %>>Lifestyle</option>
-            <option value="education" <% if (post.category === "education" ? "selected" : "") %>>Education</option>
-            <option value="sports" <% if (post.category === "sports" ? "selected" : "") %>>Sports</option>
-            <option value="science" <% if (post.category === "science" ? "selected" : "") %>>Science</option>
-            <option value="cars" <% if (post.category === "cars" ? "selected" : "") %>>Cars</option>
+            <option value="tech" <%= post.category === "tech" ? "selected" : "" %>>Tech</option>
+            <option value="lifestyle" <%= post.category === "lifestyle" ? "selected" : "" %>>Lifestyle</option>
+            <option value="education" <%= post.category === "education" ? "selected" : "" %>>Education</option>
+            <option value="sports" <%= post.category === "sports" ? "selected" : "" %>>Sports</option>
+            <option value="science" <%= post.category === "science" ? "selected" : "" %>>Science</option>
+            <option value="cars" <%= post.category === "cars" ? "selected" : "" %>>Cars</option>
         </select>
         <label for="content">Content</label>
         <textarea id="content" name="content" placeholder="What's on your mind?" required><%= post.content %></textarea>
