@@ -6,13 +6,35 @@
     <title>BlogPlace - Home</title>
 </head>
 <body>
-    <!-- TODO: title goes here -->
-    <!-- TODO: blog post form goes here -->
-    <form action="/create" method="POST">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="content" placeholder="What's on your mind?">
+
+    <h1 class="site-title">BlogPlace</h1>
+
+    <form class="create-form" action="/create" method="POST">
+        <input type="text" name="creator" placeholder="Your name" required>
+        <input type="text" name="title" placeholder="Post title" required>
+        <label>Post category
+            <select name="category" required>
+                <option value="tech">Tech</option>
+                <option value="lifestyle">Lifestyle</option>
+                <option value="education">Education</option>
+                <option value="sports">Sports</option>
+                <option value="science">Science</option>
+                <option value="cars">Cars</option>
+            </select>
+        </label>
+        <input type="text" name="content" placeholder="What's on your mind?" required>
         <input type="submit" value="OK">
     </form>
-    <!-- TODO: list of blog posts with most recent at the top -->
+
+    <%if (locals.posts) {%>
+        <%for (post in posts) {%>
+            <div class="blog-post">
+                <h2 class="blog-title"><%=post.title%></h2>
+                <h4 class="blog-creator"><%=post.creator%></h4>
+                <time class="blog-date"><%=post.date%></time>
+                <p class="blog-content"><%=post.content%></p>
+            </div>
+        <%}%>
+    <%}%>
 </body>
 </html>
