@@ -63,6 +63,7 @@ app.post("/edit/:index", (req, res) => {
 app.delete("/delete/:index", (req, res) => {
     const postIndex = Number(req.params.index); // grab index from URL
     postArray.splice(postIndex, 1);
+    res.redirect("/");
 });
 
 app.listen(port, () => {
