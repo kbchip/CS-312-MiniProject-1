@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>BlogPlace - Home</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
                 <button class="edit-button" onclick="window.location.href='/edit/<%= i% >'">Edit</button>
                 <button class="delete-button" onclick="fetch('/delete/<%= i %>', { method: 'DELETE' }).then(() => window.location.reload())">Delete</button>
             </div>
-        <%}%>
-    <%}%>
+        <% } %>
+    <% } %>
 </body>
 </html>
