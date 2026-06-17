@@ -42,7 +42,7 @@ app.get("/edit/:index", (req, res) => {
     });
 });
 
-app.patch("/edit/:index", (req, res) => {
+app.post("/edit/:index", (req, res) => {
     const postIndex = Number(req.params.index); // grab index from URL
     const post = postArray[postIndex];
 
