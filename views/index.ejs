@@ -36,7 +36,7 @@
                 <time class="blog-date"><%=posts[i].date%></time>
                 <p class="blog-content"><%=posts[i].content%></p>
                 <button class="edit-button" onclick="window.location.href='/edit/<%=i%>'">Edit</button>
-                <button class="delete-button" onclick="window.location.href='/delete/<%=i%>'">Delete</button>
+                <button class="delete-button" onclick="fetch('/delete/<%= i %>', { method: 'DELETE' }).then(() => window.location.reload())">Delete</button>
             </div>
         <%}%>
     <%}%>
