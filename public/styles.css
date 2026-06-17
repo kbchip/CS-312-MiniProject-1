@@ -33,11 +33,52 @@ body {
 }
 
 .blog-post {
-    width: fit-content;
+    width: 60%;
+    padding: 5px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    display: flex;
+    display: grid;
+    grid-template:
+        "title title category edit" 30px
+        "creator date date delete" 30px
+        "cn cn cn cn" 300px
+        / 1fr 4fr 1fr 70px;
+    gap: 10px 10px;
     border: solid 5px white;
 }
 
+.blog-title {
+    grid-area: title;
+    align-self: center;
+}
+
+.blog-creator {
+    grid-area: creator;
+    align-self: center;
+}
+
+.blog-date {
+    grid-area: date;
+    justify-self: right;
+    align-self: center;
+}
+
+.blog-category {
+    grid-area: category;
+    justify-self: right;
+    align-self: center;
+}
+
+.blog-content {
+    grid-area: cn;
+    border: solid 2px lightgray;
+}
+
+.edit-button {
+    grid-area: edit;
+}
+
+.delete-button {
+    grid-area: delete;
+}
