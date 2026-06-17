@@ -36,8 +36,8 @@
                 <h4 class="blog-creator"><%= posts[i].creator %></h4>
                 <time class="blog-date"><%= posts[i].date.toDateString() %></time>
                 <p class="blog-content"><%= posts[i].content %></p>
-                <button class="edit-button" onclick="window.location.href='/edit/<%= i% >'">Edit</button>
-                <button class="delete-button" onclick="fetch('/delete/<%= i %>', { method: 'DELETE' }).then(() => window.location.reload())">Delete</button>
+                <button class="edit-button" type="button" onclick="window.location.href='/edit/<%= i %>'">Edit</button>
+                <button class="delete-button" type="button" onclick="fetch('/delete/<%= i %>', { method: 'DELETE' }).then(() => window.location.reload())">Delete</button>
             </div>
         <% } %>
     <% } %>
