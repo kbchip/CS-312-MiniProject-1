@@ -66,10 +66,6 @@ app.delete("/delete/:index", (req, res) => {
     res.redirect("/");
 });
 
-app.delete("/delete", (req, res) => {
-    // TODO: delete existing post
-});
-
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
